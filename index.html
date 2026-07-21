@@ -10,6 +10,10 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html, body {
+    height: 100%;
+  }
+
   body {
     font-family: 'Oswald', sans-serif;
     color: #b9fe00;
@@ -20,41 +24,40 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     cursor: url('images/cursor.png'), auto;
-    min-height: 100dvh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100dvh;
   }
 
-  .hero {
-    min-height: 60vh;
+  .panel {
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-    padding: 2rem 2rem 2rem 3rem;
+    align-items: center;
+  }
+
+  .col {
+    width: min(500px, 80vw);
+    margin-left: 3rem;
   }
 
   .hero h1 {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: clamp(3rem, 12vw, 7rem);
+    font-size: clamp(3rem, 10vw, 6rem);
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    text-align: left;
     color: #b9fe00;
-  }
-
-  nav {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
   }
 
   .nav-link {
     display: block;
     text-align: center;
-    padding: 3rem 0;
     text-decoration: none;
     font-weight: 700;
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(2rem, 8vw, 4rem);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #b9fe00;
@@ -77,15 +80,14 @@
     100% { opacity: 1; }
   }
 
-  footer {
+  footer p {
     text-align: center;
-    padding: 3rem 2rem;
     font-size: 0.9rem;
     color: #b9fe00;
     opacity: 0;
   }
 
-  footer.visible {
+  footer p.visible {
     animation: flicker-in 0.6s steps(1, end) forwards;
   }
 
@@ -96,24 +98,48 @@
 </head>
 <body>
 
-  <div class="hero">
-    <h1>Instagays</h1>
+  <div class="panel">
+    <div class="col hero">
+      <h1>Instagays</h1>
+    </div>
   </div>
 
-  <nav>
-    <a class="nav-link" href="about.html">About</a>
-    <a class="nav-link" href="https://www.youtube.com/watch?v=Q3ntJgVdEho" target="_blank" rel="noopener">Watch</a>
-    <a class="nav-link" href="listen.html">Listen</a>
-    <a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Follow</a>
-    <a class="nav-link" href="mailto:you@email.com">Contact</a>
-  </nav>
+  <div class="panel">
+    <div class="col">
+      <a class="nav-link" href="about.html">About</a>
+    </div>
+  </div>
 
-  <footer>
+  <div class="panel">
+    <div class="col">
+      <a class="nav-link" href="https://www.youtube.com/watch?v=Q3ntJgVdEho" target="_blank" rel="noopener">Watch</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="col">
+      <a class="nav-link" href="listen.html">Listen</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="col">
+      <a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Follow</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="col">
+      <a class="nav-link" href="mailto:you@email.com">Contact</a>
+    </div>
+  </div>
+
+  <footer class="panel">
     <p>© 2026 Instagays</p>
   </footer>
 
   <script>
-    const items = document.querySelectorAll('.nav-link, footer');
+    const items = document.querySelectorAll('.nav-link, footer p');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -124,7 +150,7 @@
           entry.target.classList.remove('visible');
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.5 });
     items.forEach(item => observer.observe(item));
   </script>
 
