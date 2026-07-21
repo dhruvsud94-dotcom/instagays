@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOUR FILM TITLE — A Short Film</title>
+<title>instagays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: 'Oswald', sans-serif;
     background: #0a0a0a;
     color: #f2f2f2;
     line-height: 1.6;
@@ -23,6 +26,8 @@
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/hero-still.jpg') center/cover no-repeat;
   }
   .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
     font-size: clamp(2.5rem, 8vw, 5rem);
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -39,6 +44,7 @@
     padding: 4rem 2rem;
   }
   h2 {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -47,6 +53,23 @@
     padding-bottom: 0.5rem;
   }
   .synopsis p { color: #ddd; font-size: 1.05rem; }
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-top: 1rem;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -79,7 +102,7 @@
 <body>
 
   <div class="hero">
-    <h1>YOUR FILM TITLE</h1>
+    <h1>instagays</h1>
     <p>A one-line logline goes here — the hook that tells people what the film is about.</p>
   </div>
 
@@ -92,7 +115,14 @@
     </p>
   </section>
 
-  <section class="gallery">
+  <section class="trailer">
+    <h2>Trailer</h2>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/Q3ntJgVdEho" title="Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="gallery-section">
     <h2>Stills</h2>
     <div class="gallery">
       <img src="images/still-1.jpg" alt="Still from the film">
