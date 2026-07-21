@@ -29,8 +29,9 @@
   @media (max-width: 768px) {
     body {
       background-image: url('images/hero-still-mobile.jpeg');
-         background-size: cover;
-          background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
     }
   }
   .marquee-banner {
@@ -43,14 +44,18 @@
     z-index: 1000;
     display: flex;
     align-items: center;
-    animation: marquee-bg-cycle 8s steps(4, end) infinite;
+    animation: marquee-bg-cycle 8s infinite;
   }
   @keyframes marquee-bg-cycle {
-    0%   { background-color: #b9fe00; }
-    25%  { background-color: #fe2687; }
-    50%  { background-color: #ff1035; }
-    75%  { background-color: #72d9fb; }
-    100% { background-color: #b9fe00; }
+    0%     { background-color: #b9fe00; }
+    24.9%  { background-color: #b9fe00; }
+    25%    { background-color: #fe2687; }
+    49.9%  { background-color: #fe2687; }
+    50%    { background-color: #ff1035; }
+    74.9%  { background-color: #ff1035; }
+    75%    { background-color: #72d9fb; }
+    99.9%  { background-color: #72d9fb; }
+    100%   { background-color: #b9fe00; }
   }
   .marquee-track {
     display: flex;
@@ -70,14 +75,18 @@
     padding-right: 3rem;
     text-decoration: none;
     flex-shrink: 0;
-    animation: marquee-text-cycle 8s steps(4, end) infinite;
+    animation: marquee-text-cycle 8s infinite;
   }
   @keyframes marquee-text-cycle {
-    0%   { color: #fe2687; }
-    25%  { color: #b9fe00; }
-    50%  { color: #72d9fb; }
-    75%  { color: #ff1035; }
-    100% { color: #fe2687; }
+    0%     { color: #fe2687; }
+    24.9%  { color: #fe2687; }
+    25%    { color: #b9fe00; }
+    49.9%  { color: #b9fe00; }
+    50%    { color: #72d9fb; }
+    74.9%  { color: #72d9fb; }
+    75%    { color: #ff1035; }
+    99.9%  { color: #ff1035; }
+    100%   { color: #fe2687; }
   }
   @keyframes marquee-scroll {
     0%   { transform: translateX(0); }
