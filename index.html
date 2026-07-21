@@ -10,6 +10,10 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html, body {
+    height: 100%;
+  }
+
   body {
     font-family: 'Oswald', sans-serif;
     color: #b9fe00;
@@ -19,18 +23,25 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100dvh;
     cursor: url('images/cursor.png'), auto;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100dvh;
+  }
+
+  .panel {
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero {
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    padding: 4rem 2rem 2rem;
+    align-items: flex-end;
+    text-align: right;
+    padding: 2rem 3rem 0 2rem;
   }
 
   .hero h1 {
@@ -42,18 +53,14 @@
     color: #b9fe00;
   }
 
-  nav {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
+  .nav-panel {
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-link {
-    display: block;
-    text-align: center;
-    padding: 3rem 0;
     text-decoration: none;
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(2rem, 8vw, 4rem);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #b9fe00;
@@ -68,8 +75,9 @@
   }
 
   footer {
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 3rem 2rem;
     font-size: 0.9rem;
     color: #b9fe00;
     opacity: 0;
@@ -89,17 +97,29 @@
 </head>
 <body>
 
-  <div class="hero">
+  <div class="panel hero">
     <h1>Instagays</h1>
   </div>
 
-  <nav>
-    <a class="nav-link" href="about.html">About</a>
-    <a class="nav-link" href="https://www.youtube.com/watch?v=Q3ntJgVdEho" target="_blank" rel="noopener">Watch</a>
-    <a class="nav-link" href="listen.html">Listen</a>
-    <a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Follow</a>
-    <a class="nav-link" href="mailto:you@email.com">Contact</a>
-  </nav>
+  <div class="panel nav-panel">
+    <a class="nav-link" href="https://youtu.be/c3wfBHFCAbY?si=zem0q0feoHvSk9Pr" target="_blank" rel="noopener">Watch</a>
+  </div>
+
+  <div class="panel nav-panel">
+    <a class="nav-link" href="https://youtube.com/playlist?list=PLU1HOZv40ioxcMkAPuQAvs2xuL72be7wA&si=R67zjWxga_Gn-Wzu">Listen</a>
+  </div>
+
+  <div class="panel nav-panel">
+    <a class="nav-link" href="https://www.instagram.com/instagays.mov/" target="_blank" rel="noopener">Follow</a>
+  </div>
+
+  <div class="panel nav-panel">
+    <a class="nav-link" href="mailto:dhruvsud94@gmail.com">Contact</a>
+  </div>
+
+  <footer class="panel">
+    <p>© 2026 Instagays</p>
+  </footer>
 
   <script>
     const items = document.querySelectorAll('.nav-link, footer');
@@ -107,7 +127,7 @@
       entries.forEach(entry => {
         entry.target.classList.toggle('visible', entry.isIntersecting);
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.5 });
     items.forEach(item => observer.observe(item));
   </script>
 
