@@ -83,7 +83,21 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-align: left;
-    color: #b9fe00;
+    opacity: 0;
+  }
+  .hero h1.visible {
+    animation: flicker-color 1s steps(1, end) forwards;
+  }
+  @keyframes flicker-color {
+    0%   { opacity: 0; color: #b9fe00; }
+    10%  { opacity: 1; color: #fe2687; }
+    20%  { opacity: 0; color: #72d9fb; }
+    30%  { opacity: 1; color: #ff1035; }
+    45%  { opacity: 0.2; color: #b9fe00; }
+    55%  { opacity: 1; color: #72d9fb; }
+    70%  { opacity: 0.3; color: #fe2687; }
+    85%  { opacity: 1; color: #ff1035; }
+    100% { opacity: 1; color: #b9fe00; }
   }
   .nav-link {
     display: block;
@@ -163,7 +177,7 @@
     </div>
   </div>
   <script>
-    const items = document.querySelectorAll('.nav-link, footer p');
+    const items = document.querySelectorAll('.hero h1, .nav-link, footer p');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -177,4 +191,5 @@
     }, { threshold: 0.5 });
     items.forEach(item => observer.observe(item));
   </script>
-</b
+</body>
+</html>
