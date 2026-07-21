@@ -3,16 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INSTAGAYS</title>
+<title>INSTAGAYS — A Short Film</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body {
-    height: 100%;
-  }
 
   body {
     font-family: 'Oswald', sans-serif;
@@ -24,24 +20,17 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     cursor: url('images/cursor.png'), auto;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100dvh;
-  }
-
-  .panel {
-    height: 100dvh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    display: flex;
-    flex-direction: column;
+    min-height: 100dvh;
   }
 
   .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-end;
-    text-align: right;
-    padding: 2rem 3rem 0 2rem;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2rem 2rem 2rem 3rem;
   }
 
   .hero h1 {
@@ -53,41 +42,51 @@
     color: #b9fe00;
   }
 
-  .nav-panel {
-    justify-content: center;
-    align-items: center;
+  nav {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
   }
 
   .nav-link {
+    display: block;
+    text-align: center;
+    padding: 3rem 0;
     text-decoration: none;
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #b9fe00;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
   .nav-link.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: flicker-in 0.6s steps(1, end) forwards;
+  }
+
+  @keyframes flicker-in {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    20%  { opacity: 0; }
+    30%  { opacity: 1; }
+    45%  { opacity: 0.2; }
+    55%  { opacity: 1; }
+    70%  { opacity: 0.3; }
+    85%  { opacity: 1; }
+    100% { opacity: 1; }
   }
 
   footer {
-    justify-content: center;
-    align-items: center;
     text-align: center;
+    padding: 3rem 2rem;
     font-size: 0.9rem;
     color: #b9fe00;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
   footer.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: flicker-in 0.6s steps(1, end) forwards;
   }
 
   footer a {
@@ -97,27 +96,19 @@
 </head>
 <body>
 
-  <div class="panel hero">
+  <div class="hero">
     <h1>Instagays</h1>
   </div>
 
-  <div class="panel nav-panel">
-    <a class="nav-link" href="https://youtu.be/c3wfBHFCAbY?si=zem0q0feoHvSk9Pr" target="_blank" rel="noopener">Watch</a>
-  </div>
+  <nav>
+    <a class="nav-link" href="about.html">About</a>
+    <a class="nav-link" href="https://www.youtube.com/watch?v=Q3ntJgVdEho" target="_blank" rel="noopener">Watch</a>
+    <a class="nav-link" href="listen.html">Listen</a>
+    <a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Follow</a>
+    <a class="nav-link" href="mailto:you@email.com">Contact</a>
+  </nav>
 
-  <div class="panel nav-panel">
-    <a class="nav-link" href="https://youtube.com/playlist?list=PLU1HOZv40ioxcMkAPuQAvs2xuL72be7wA&si=R67zjWxga_Gn-Wzu">Listen</a>
-  </div>
-
-  <div class="panel nav-panel">
-    <a class="nav-link" href="https://www.instagram.com/instagays.mov/" target="_blank" rel="noopener">Follow</a>
-  </div>
-
-  <div class="panel nav-panel">
-    <a class="nav-link" href="mailto:dhruvsud94@gmail.com">Contact</a>
-  </div>
-
-  <footer class="panel">
+  <footer>
     <p>© 2026 Instagays</p>
   </footer>
 
@@ -125,9 +116,15 @@
     const items = document.querySelectorAll('.nav-link, footer');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        entry.target.classList.toggle('visible', entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('visible');
+          void entry.target.offsetWidth; // restart animation
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
     items.forEach(item => observer.observe(item));
   </script>
 
