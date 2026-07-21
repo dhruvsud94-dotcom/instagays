@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR FILM TITLE — A Short Film</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #0a0a0a;
+    color: #f2f2f2;
+    line-height: 1.6;
+  }
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/hero-still.jpg') center/cover no-repeat;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: #ccc;
+  }
+  section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+  }
+  .synopsis p { color: #ddd; font-size: 1.05rem; }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .gallery img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .credits {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    row-gap: 0.75rem;
+    max-width: 500px;
+  }
+  .credits .role { color: #999; }
+  .credits .name { color: #fff; }
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  footer a { color: #ccc; }
+</style>
+</head>
+<body>
 
+  <div class="hero">
+    <h1>YOUR FILM TITLE</h1>
+    <p>A one-line logline goes here — the hook that tells people what the film is about.</p>
+  </div>
+
+  <section class="synopsis">
+    <h2>Synopsis</h2>
+    <p>
+      Write 2–4 sentences describing the film here. Give enough to intrigue without
+      giving away the ending. This is usually the first thing festival programmers
+      and press read.
+    </p>
+  </section>
+
+  <section class="gallery">
+    <h2>Stills</h2>
+    <div class="gallery">
+      <img src="images/still-1.jpg" alt="Still from the film">
+      <img src="images/still-2.jpg" alt="Still from the film">
+      <img src="images/still-3.jpg" alt="Still from the film">
+    </div>
+  </section>
+
+  <section class="credits-section">
+    <h2>Cast & Crew</h2>
+    <div class="credits">
+      <div class="role">Director</div><div class="name">Name</div>
+      <div class="role">Producer</div><div class="name">Dhruv [Last Name]</div>
+      <div class="role">Writer</div><div class="name">Name</div>
+      <div class="role">Starring</div><div class="name">Name, Name</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>For press or festival inquiries: <a href="mailto:you@email.com">you@email.com</a></p>
+  </footer>
+
+</body>
+</html>
