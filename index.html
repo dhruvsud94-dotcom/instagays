@@ -29,6 +29,13 @@
     height: 100dvh;
   }
 
+  @media (max-width: 768px) {
+    body {
+      background-image: url('images/hero-still-mobile.jpeg');
+      background-attachment: scroll;
+    }
+  }
+
   .panel {
     height: 100dvh;
     scroll-snap-align: start;
@@ -106,37 +113,27 @@
 
   <div class="panel">
     <div class="col">
-      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="https://youtu.be/c3wfBHFCAbY?si=F7fWwAmCAOEsSdKy" target="_blank" rel="noopener">Watch</a>
     </div>
   </div>
 
   <div class="panel">
     <div class="col">
-      <a class="nav-link" href="https://www.youtube.com/watch?v=Q3ntJgVdEho" target="_blank" rel="noopener">Watch</a>
+      <a class="nav-link" href="https://youtube.com/playlist?list=PLU1HOZv40ioxcMkAPuQAvs2xuL72be7wA&si=R67zjWxga_Gn-Wzu">Listen</a>
     </div>
   </div>
 
   <div class="panel">
     <div class="col">
-      <a class="nav-link" href="listen.html">Listen</a>
+      <a class="nav-link" href="https://www.instagram.com/instagays.mov/" target="_blank" rel="noopener">Follow</a>
     </div>
   </div>
 
   <div class="panel">
     <div class="col">
-      <a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Follow</a>
+      <a class="nav-link" href="mailto:dhruvsud94@gmail.com">Contact</a>
     </div>
   </div>
-
-  <div class="panel">
-    <div class="col">
-      <a class="nav-link" href="mailto:you@email.com">Contact</a>
-    </div>
-  </div>
-
-  <footer class="panel">
-    <p>© 2026 Instagays</p>
-  </footer>
 
   <script>
     const items = document.querySelectorAll('.nav-link, footer p');
