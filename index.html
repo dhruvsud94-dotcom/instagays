@@ -16,28 +16,24 @@
     font-family: 'Oswald', sans-serif;
     color: #b9fe00;
     line-height: 1.6;
-    background-image: url('images/hero-still.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     cursor: url('images/cursor.png'), auto;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100dvh;
   }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: url('images/hero-still.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   @media (max-width: 768px) {
-    body {
+    body::before {
       background-image: url('images/hero-still-mobile.jpeg');
-      background-size: cover;
-     background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: scroll;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     height: 100%;
-     overflow: scroll;
       background-color: #fe2687;
     }
     .hero-panel {
