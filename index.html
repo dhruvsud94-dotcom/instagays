@@ -4,6 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>INSTAGAYS — watch the short film now</title>
+<meta name="description" content="Instagays — watch the short film now. Stream it on YouTube, listen to the soundtrack, and follow along on Instagram.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://instagays.mov/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="Instagays — watch the short film now">
+<meta property="og:description" content="Instagays — watch the short film now. Stream it on YouTube, listen to the soundtrack, and follow along on Instagram.">
+<meta property="og:image" content="https://instagays.mov/images/hero-still.jpeg">
+<meta property="og:url" content="https://instagays.mov/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Instagays — watch the short film now">
+<meta name="twitter:description" content="Instagays — watch the short film now. Stream it on YouTube, listen to the soundtrack, and follow along on Instagram.">
+<meta name="twitter:image" content="https://instagays.mov/images/hero-still.jpeg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Instagays",
+  "description": "Instagays — a short film. Watch now on YouTube.",
+  "thumbnailUrl": "https://instagays.mov/images/hero-still.jpeg",
+  "embedUrl": "https://youtu.be/c3wfBHFCAbY"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -20,6 +51,9 @@
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100dvh;
+  }
+  a:hover {
+    cursor: url('images/cursor-hover.png'), pointer;
   }
   body::before {
     content: "";
@@ -118,6 +152,10 @@
     width: min(500px, 80vw);
     margin-left: 3rem;
   }
+  .hero a {
+    text-decoration: none;
+    display: block;
+  }
   .hero h1 {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
@@ -161,9 +199,25 @@
   footer a {
     color: #b9fe00;
   }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 </head>
 <body>
+  <p class="visually-hidden">
+    Instagays is a short film — watch it now on YouTube, listen to the soundtrack on the companion
+    playlist, and follow @instagays.mov on Instagram for updates. [Replace this sentence with your
+    own logline, cast, or festival details for better search results.]
+  </p>
   <div class="marquee-banner">
     <div class="marquee-track">
       <div class="marquee-group">
@@ -190,7 +244,9 @@
   </div>
   <div class="panel hero-panel">
     <div class="col hero">
-      <h1>Instagays</h1>
+      <a href="https://youtu.be/c3wfBHFCAbY?si=F7fWwAmCAOEsSdKy" target="_blank" rel="noopener">
+        <h1>Instagays</h1>
+      </a>
     </div>
   </div>
   <div class="panel">
